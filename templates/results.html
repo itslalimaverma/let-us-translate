@@ -2,32 +2,81 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Translator </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Translation Result | Smart Translator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+    crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f2f6fc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .result-card {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .result-item {
+      margin-bottom: 20px;
+    }
+
+    .btn-custom {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #218838;
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 30px;
+      color: #666;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <h2>I have got you a result!</h2>
-        <div>
-            <strong>Original text was:</strong> {{ original_text }}
-        </div>
-        <div>
-            <strong>Translated text is:</strong> {{ translated_text }}
-        </div>
-        <div>
-            <strong>Target language code:</strong> {{ target_language }}
-        </div>
-        <div>
-            <a href="{{ url_for('index') }}">Try another!</a>
-        </div>
-        <div>
-            Thanks for using. Hope you loved it :)
-        </div>
+  <div class="container">
+    <div class="result-card">
+      <h2>Translation Ready!</h2>
+      <div class="result-item">
+        <strong>Original Text:</strong>
+        <p>{{ original_text }}</p>
+      </div>
+      <div class="result-item">
+        <strong>Translated Text:</strong>
+        <p>{{ translated_text }}</p>
+      </div>
+      <div class="result-item">
+        <strong>Target Language Code:</strong>
+        <p>{{ target_language }}</p>
+      </div>
+      <div class="text-center">
+        <a href="{{ url_for('index') }}" class="btn-custom">Try Another Translation</a>
+      </div>
     </div>
+    <p class="footer-note">Thanks for using Smart Translator!</p>
+  </div>
 </body>
 
 </html>
